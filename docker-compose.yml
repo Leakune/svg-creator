@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  svg-creator:
+    image: svg-creator:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
