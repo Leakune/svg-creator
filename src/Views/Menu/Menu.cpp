@@ -19,20 +19,22 @@ bool Menu::handleCaseChoice() {
     for (const auto& [key, value] : casesMap) {
         std::cout << key << ": " << value << std::endl;
     }
-    std::cout << "Enter your action: " << std::endl << ">>";
-    int indexCaseSelected;
+    std::cout << "Enter your action: " << std::endl;
+    int indexCaseSelected = -1;
     do{
+        std::cout << ">>";
         std::cin >> indexCaseSelected;
-    }while(!(0 < indexCaseSelected || indexCaseSelected < casesMap.size()));
+    }while(!(0 <= indexCaseSelected && indexCaseSelected < casesMap.size()));
     if(indexCaseSelected == 0){
         drawview.launch();
         return false;
     }
     else if(indexCaseSelected == 1){
-        std::cout << "Load shapes selected";
+        std::cout << "Load shapes selected" << std::endl;
         return false;
     }
     else if(indexCaseSelected == 2){
+        std::cout << "Exiting the application..." << std::endl;
         return true;
     }
 }
