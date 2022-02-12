@@ -6,9 +6,8 @@
 
 
 #include <map>
-#include "../Draw/Draw.cpp"
 
-//using pfunc = void (*)();
+#include "../Draw/Draw.cpp"
 
 class Menu {
     Draw drawview;
@@ -17,7 +16,9 @@ class Menu {
         Menu();
         void launch();
         void displayWelcomeMessage();
-        bool handleCaseChoice();
+        void displayCasesChoices();
+        void getSelectionCaseChoice(int&);
+        bool handleSelectionCaseChoice(int&);
 
 };
 
