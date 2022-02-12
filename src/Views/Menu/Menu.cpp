@@ -10,8 +10,8 @@ const bool IS_NOT_QUITING_MENU = false;
 const bool IS_QUITING_MENU = true;
 
 Menu::Menu(): drawview(Draw()) {
-    casesMap[0] = "Draw new shapes";
-    casesMap[1] = "Load shapes";
+    casesMap[0] = "Draw a new drawing";
+    casesMap[1] = "Load a drawing";
     casesMap[2] = "Exit";
 }
 
@@ -61,6 +61,7 @@ bool Menu::handleSelectionCaseChoice(int& indexCaseSelected) {
             return IS_NOT_QUITING_MENU;
         case 1:
             std::cout << "Load shapes selected" << std::endl;
+            drawview.loadDrawing();
             return IS_NOT_QUITING_MENU;
         case 2:
             std::cout << "Quiting the menu..." << std::endl;

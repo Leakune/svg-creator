@@ -10,6 +10,7 @@ class Draw {
     public:
         void launch();
         void displayWelcomeMessage();
+        void loadDrawing();
 };
 
 
