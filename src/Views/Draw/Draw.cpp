@@ -5,6 +5,10 @@
 #include "Draw.h"
 #include <iostream>
 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 const bool IS_NOT_QUITING_DRAW = false;
 const bool IS_QUITING_DRAW = true;
 
@@ -22,5 +26,11 @@ void Draw::launch() {
 }
 
 void Draw::loadDrawing() {
+    #ifdef _WIN32
+    ShellExecute(NULL, "open", "http://dreamincode.net",
+                NULL, NULL, SW_SHOWNORMAL);
+    #else
     system("open ../Ressources/Drawings/test.svg");
+    #endif
+
 }
