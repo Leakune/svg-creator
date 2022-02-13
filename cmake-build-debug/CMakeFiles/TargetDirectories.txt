@@ -1,3 +1,0 @@
-/Users/ludovic/Documents/4eme_annee/cpp/projet/svg-creator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/ludovic/Documents/4eme_annee/cpp/projet/svg-creator/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/ludovic/Documents/4eme_annee/cpp/projet/svg-creator/cmake-build-debug/CMakeFiles/svg_creator.dir
