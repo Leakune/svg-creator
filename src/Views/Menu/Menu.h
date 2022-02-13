@@ -17,7 +17,7 @@ class Menu {
         void launch();
         void displayWelcomeMessage();
         void displayCasesChoices();
-        void getSelectionCaseChoice(int&);
+        void setSelectionCaseChoice(int&);
         bool handleSelectionCaseChoice(int&);
 
 };

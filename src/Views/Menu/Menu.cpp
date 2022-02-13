@@ -16,13 +16,13 @@ Menu::Menu(): drawview(MenuDraw()) {
 }
 
 void Menu::launch() {
-    bool isModeMenuQuit = IS_NOT_QUITING_MENU;
+    bool isModeMenuQuit = false;
     int indexCaseSelected;
 
     while(!isModeMenuQuit){
         displayWelcomeMessage();
         displayCasesChoices();
-        getSelectionCaseChoice(indexCaseSelected);
+        setSelectionCaseChoice(indexCaseSelected);
         isModeMenuQuit = handleSelectionCaseChoice(indexCaseSelected);
     }
 }
@@ -38,7 +38,7 @@ void Menu::displayCasesChoices() {
     std::cout << "Enter your action: " << std::endl;
 }
 
-void Menu::getSelectionCaseChoice(int& indexCaseSelected){
+void Menu::setSelectionCaseChoice(int& indexCaseSelected){
     std::string getLine;
     std::cout << ">>";
     std::getline(std::cin, getLine);
@@ -46,17 +46,18 @@ void Menu::getSelectionCaseChoice(int& indexCaseSelected){
         indexCaseSelected = std::stoi(getLine);
         if(!(0 <= indexCaseSelected && indexCaseSelected < casesMap.size())){
             std::cout << "selection is not included in cases choice" << std::endl;
-            getSelectionCaseChoice(indexCaseSelected);
+            setSelectionCaseChoice(indexCaseSelected);
         }
     } catch(std::invalid_argument e){
         std::cout << "selection should be integer" << std::endl;
-        getSelectionCaseChoice(indexCaseSelected);
+        setSelectionCaseChoice(indexCaseSelected);
     }
 }
 
 bool Menu::handleSelectionCaseChoice(int& indexCaseSelected) {
     switch ( indexCaseSelected ) {
         case 0:
+            //création d'un nouveau svg
             drawview.launch();
             return IS_NOT_QUITING_MENU;
         case 1:
