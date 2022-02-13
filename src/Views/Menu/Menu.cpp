@@ -9,7 +9,7 @@
 const bool IS_NOT_QUITING_MENU = false;
 const bool IS_QUITING_MENU = true;
 
-Menu::Menu(): drawview(Draw()) {
+Menu::Menu(): drawview(MenuDraw()) {
     casesMap[0] = "Draw a new drawing";
     casesMap[1] = "Load a drawing";
     casesMap[2] = "Exit";

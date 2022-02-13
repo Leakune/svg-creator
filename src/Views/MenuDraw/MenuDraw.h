@@ -6,7 +6,7 @@
 #define SVG_CREATOR_DRAW_H
 
 
-class Draw {
+class MenuDraw {
     public:
         void launch();
         void displayWelcomeMessage();

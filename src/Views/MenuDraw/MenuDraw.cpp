@@ -2,7 +2,7 @@
 // Created by Ludovic FAVIER on 07/02/2022.
 //
 
-#include "Draw.h"
+#include "MenuDraw.h"
 #include <iostream>
 
 #ifdef _WIN32
@@ -12,11 +12,11 @@
 const bool IS_NOT_QUITING_DRAW = false;
 const bool IS_QUITING_DRAW = true;
 
-void Draw::displayWelcomeMessage() {
-    std::cout << "In Draw !" << std::endl;
+void MenuDraw::displayWelcomeMessage() {
+    std::cout << "In MenuDraw !" << std::endl;
 }
 
-void Draw::launch() {
+void MenuDraw::launch() {
     bool isModeDrawQuit = IS_NOT_QUITING_DRAW;
 
     while(!isModeDrawQuit){
@@ -25,7 +25,7 @@ void Draw::launch() {
     }
 }
 
-void Draw::loadDrawing() {
+void MenuDraw::loadDrawing() {
     #ifdef _WIN32
     ShellExecute(NULL, "open", "..\\Ressources\\Drawings\\test.svg",
                 NULL, NULL, SW_SHOWNORMAL);

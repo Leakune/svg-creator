@@ -7,10 +7,10 @@
 
 #include <map>
 
-#include "../Draw/Draw.cpp"
+#include "../MenuDraw/MenuDraw.cpp"
 
 class Menu {
-    Draw drawview;
+    MenuDraw drawview;
     std::map<int, std::string> casesMap;
     public:
         Menu();
