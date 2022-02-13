@@ -27,7 +27,7 @@ void Draw::launch() {
 
 void Draw::loadDrawing() {
     #ifdef _WIN32
-    ShellExecute(NULL, "open", "http://dreamincode.net",
+    ShellExecute(NULL, "open", "..\\Ressources\\Drawings\\test.svg",
                 NULL, NULL, SW_SHOWNORMAL);
     #else
     system("open ../Ressources/Drawings/test.svg");
