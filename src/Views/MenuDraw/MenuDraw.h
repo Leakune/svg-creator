@@ -7,9 +7,14 @@
 
 
 class MenuDraw {
+    std::map<int, std::string> casesMapDraw;
     public:
+        MenuDraw();
         void launch();
         void displayWelcomeMessage();
+        void displayCasesChoicesDraw();
+        void setSelectionCaseChoiceDraw(int&);
+        bool handleSelectionCaseChoiceDraw(int&);
         void loadDrawing();
 };
 
