@@ -8,9 +8,11 @@
 #include <map>
 
 #include "../MenuDraw/MenuDraw.cpp"
+#include "../NameFile/NameFile.h"
 
 class Menu {
     MenuDraw drawview;
+    NameFile namefile;
     std::map<int, std::string> casesMap;
     public:
         Menu();

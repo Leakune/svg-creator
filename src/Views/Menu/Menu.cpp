@@ -9,7 +9,7 @@
 const bool IS_NOT_QUITING_MENU = false;
 const bool IS_QUITING_MENU = true;
 
-Menu::Menu(): drawview(MenuDraw()) {
+Menu::Menu(): drawview(MenuDraw()), namefile(NameFile()) {
     casesMap[0] = "Draw a new drawing";
     casesMap[1] = "Load a drawing";
     casesMap[2] = "Exit";
@@ -58,11 +58,14 @@ bool Menu::handleSelectionCaseChoice(int& indexCaseSelected) {
     switch ( indexCaseSelected ) {
         case 0:
             //création d'un nouveau svg
-            drawview.launch();
+            // TODO drawview.launch();
+            namefile.create("createTemp");
             return IS_NOT_QUITING_MENU;
         case 1:
             std::cout << "Load shapes selected" << std::endl;
-            drawview.loadDrawing();
+            // TODO drawview.loadDrawing();
+//            std::string name = namefile.askNameFile();
+//            namefile.loadFile(name);
             return IS_NOT_QUITING_MENU;
         case 2:
             std::cout << "Quiting the menu..." << std::endl;
