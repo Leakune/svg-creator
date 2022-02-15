@@ -1,5 +1,5 @@
 #include <iostream>
-#include "src/Views/Menu/Menu.cpp"
+#include "src/Views/Menu/Menu.h"
 
 int main(int argc, char const *argv[])
 {

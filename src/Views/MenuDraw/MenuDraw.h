@@ -5,7 +5,8 @@
 #ifndef SVG_CREATOR_DRAW_H
 #define SVG_CREATOR_DRAW_H
 
-
+#include <string>
+#include <map>
 class MenuDraw {
     std::map<int, std::string> casesMapDraw;
     public:
