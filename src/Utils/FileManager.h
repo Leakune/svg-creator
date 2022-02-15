@@ -10,10 +10,13 @@
 #include <fstream>
 
 class FileManager {
-    std::string name;
     public:
-        FileManager(std::string nameFile);
-        void writeFile();
+        FileManager();
+        void writeFile(std::string name);
+        void create(std::string name);
+        void loadFile(std::string name);
+        void saveFile(std::string name);
+
 };
 
 

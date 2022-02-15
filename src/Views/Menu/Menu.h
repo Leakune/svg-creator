@@ -7,12 +7,14 @@
 
 #include <map>
 
-#include "../MenuDraw/MenuDraw.cpp"
-#include "../NameFile/NameFile.h"
+#include "../MenuDraw/MenuDraw.h"
+#include "../MenuNameFile/MenuNameFile.h"
+#include "../../Utils/FileManager.h"
 
 class Menu {
     MenuDraw drawview;
-    NameFile namefile;
+    MenuNameFile namefile;
+    FileManager fm;
     std::map<int, std::string> casesMap;
     public:
         Menu();
