@@ -9,4 +9,4 @@ project(svg_creator)
 set(CMAKE_CXX_STANDARD 17)
 
 #Adds the svg_creator executable target which will be built from main.cpp.
-add_executable(svg_creator main.cpp)
+add_executable(svg_creator main.cpp ./src/Views/Menu/Menu.cpp ./src/Views/MenuDraw/MenuDraw.cpp ./src/Views/MenuNameFile/MenuNameFile.cpp ./src/Utils/FileManager.cpp)
