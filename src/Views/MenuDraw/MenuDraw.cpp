@@ -64,7 +64,22 @@ void MenuDraw::setSelectionCaseChoiceDraw(int& indexCaseSelected) {
 bool MenuDraw::handleSelectionCaseChoiceDraw(int &indexCaseDrawSelected) {
     switch ( indexCaseDrawSelected ) {
         case 0:
-            std::cout << "TODO draw rectangle" << std::endl;
+
+            int x,y,width,height;
+            std::string color;
+            std::string tmp;
+            std::cout << "Origin X of rectangle" << std::endl;
+            std::x(std::cin, x);
+            std::cout << "Origin Y of rectangle" << std::endl;
+            std::x(std::cin, y);
+            std::cout << "Width of rectangle" << std::endl;
+            std::x(std::cin, width);
+            std::cout << "Height of rectangle" << std::endl;
+            std::x(std::cin, height);
+            std::cout << "Color of rectangle" << std::endl;
+            std::color(std::cin, color);
+            tmp = "<rect x="x" y="y" width="width" height="height" fill="lime" stroke-width="4" stroke="color" />";
+            // write tmp in svg
             return IS_NOT_QUITING_DRAW;
         case 1:
             std::cout << "TODO draw circle" << std::endl;
