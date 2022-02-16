@@ -79,6 +79,7 @@ bool MenuDraw::handleSelectionCaseChoiceDraw(int &indexCaseDrawSelected) {
             std::cout << "Color of rectangle" << std::endl;
             std::color(std::cin, color);
             tmp = "<rect x="x" y="y" width="width" height="height" fill="lime" stroke-width="4" stroke="color" />";
+            // write tmp in svg
             return IS_NOT_QUITING_DRAW;
         case 1:
             std::cout << "TODO draw circle" << std::endl;
