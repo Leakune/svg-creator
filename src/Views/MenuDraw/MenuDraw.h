@@ -7,7 +7,10 @@
 
 #include <string>
 #include <map>
+#include "../../Utils/FileManager.h"
+
 class MenuDraw {
+    FileManager fm;
     std::map<int, std::string> casesMapDraw;
     public:
         MenuDraw();
@@ -16,6 +19,7 @@ class MenuDraw {
         void displayCasesChoicesDraw();
         void setSelectionCaseChoiceDraw(int&);
         bool handleSelectionCaseChoiceDraw(int&);
+        void handleDrawRectangle();
         void loadDrawing();
 };
 

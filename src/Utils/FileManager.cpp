@@ -9,20 +9,23 @@
 
 FileManager::FileManager(){}
 
-void FileManager::writeFile(std::string name) {
-    std::ofstream MyFile(name);
-    MyFile << "Files can be tricky, but it is fun enough!";
+void FileManager::writeFile(std::string name, std::string content) {
+    std::ofstream MyFile(name, std::ios::out | std::ios::app);
+    MyFile.seekp(-6, std::ios::end);
+    MyFile << content;
     MyFile.close();
 }
 void FileManager::create(std::string name){
     std::ofstream file(name, std::ios::out | std::ios::trunc);  //stream declaration and file opening
-
+    //tmp = "<rect x="x" y="y" width="width" height="height" fill="lime" stroke-width="4" stroke="color" />";
     if(file){
-        file << "test";
+        file << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
+                "<svg width=\"391\" height=\"391\" viewBox=\"-70.5 -70.5 391 391\" xmlns=\"http://www.w3.org/2000/svg\">\n"
+                "</svg>";
         file.close();
     }
     else
-        std::cerr << "Erreur à l'ouverture !" << std::endl;
+        std::cerr << "Error opening the file" << std::endl;
 }
 
 void FileManager::loadFile(std::string name){

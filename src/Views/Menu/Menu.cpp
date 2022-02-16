@@ -56,11 +56,12 @@ void Menu::setSelectionCaseChoice(int& indexCaseSelected){
 }
 
 bool Menu::handleSelectionCaseChoice(int& indexCaseSelected) {
+    fm.create("temp.svg");
     switch ( indexCaseSelected ) {
         case 0:
             //création d'un nouveau svg
-            fm.create("temp.svg");
-            // TODO drawview.launch();
+
+            drawview.launch();
             return IS_NOT_QUITING_MENU;
         case 1:
             std::cout << "Load shapes selected" << std::endl;

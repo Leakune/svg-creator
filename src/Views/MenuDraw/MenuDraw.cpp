@@ -12,7 +12,7 @@
 const bool IS_NOT_QUITING_DRAW = false;
 const bool IS_QUITING_DRAW = true;
 
-MenuDraw::MenuDraw() {
+MenuDraw::MenuDraw(): fm(FileManager()) {
     casesMapDraw[0] = "Draw a rectangle";
     casesMapDraw[1] = "Draw a circle";
     casesMapDraw[2] = "Draw a segment";
@@ -63,22 +63,9 @@ void MenuDraw::setSelectionCaseChoiceDraw(int& indexCaseSelected) {
 
 bool MenuDraw::handleSelectionCaseChoiceDraw(int &indexCaseDrawSelected) {
     switch ( indexCaseDrawSelected ) {
-        case 0:
+        case 0: // draw rectangle
 
-            int x,y,width,height;
-            std::string color;
-            std::string tmp;
-            std::cout << "Origin X of rectangle" << std::endl;
-            std::x(std::cin, x);
-            std::cout << "Origin Y of rectangle" << std::endl;
-            std::x(std::cin, y);
-            std::cout << "Width of rectangle" << std::endl;
-            std::x(std::cin, width);
-            std::cout << "Height of rectangle" << std::endl;
-            std::x(std::cin, height);
-            std::cout << "Color of rectangle" << std::endl;
-            std::color(std::cin, color);
-            tmp = "<rect x="x" y="y" width="width" height="height" fill="lime" stroke-width="4" stroke="color" />";
+            handleDrawRectangle();
             // write tmp in svg
             return IS_NOT_QUITING_DRAW;
         case 1:
@@ -111,3 +98,25 @@ void MenuDraw::loadDrawing() {
 
 }
 
+void MenuDraw::handleDrawRectangle() {
+    std::string x,y,width,height, strokeWidth;
+    std::string color;
+    std::string content;
+
+    std::cout << "Origin X of rectangle" << std::endl;
+    std::getline(std::cin, x);
+    std::cout << "Origin Y of rectangle" << std::endl;
+    std::getline(std::cin, y);
+    std::cout << "Width of rectangle" << std::endl;
+    std::getline(std::cin, width);
+    std::cout << "Height of rectangle" << std::endl;
+    std::getline(std::cin, height);
+    std::cout << "Width of the strokes" << std::endl;
+    std::getline(std::cin, strokeWidth);
+    std::cout << "Color of rectangle" << std::endl;
+    std::getline(std::cin, color);
+
+    content = "<rect x=\"" + x + "\" y=\"" + y + "\" width=\"" + width + "\" height=\"" +  height + "\" fill=\"lime\" stroke-width=\"" + strokeWidth + "\" stroke=\"" + color +"\" />";
+
+    fm.writeFile("temp.svg", content);
+}

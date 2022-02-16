@@ -12,10 +12,10 @@
 class FileManager {
     public:
         FileManager();
-        void writeFile(std::string name);
-        void create(std::string name);
-        void loadFile(std::string name);
-        void saveFile(std::string name);
+        void writeFile(std::string, std::string);
+        void create(std::string);
+        void loadFile(std::string);
+        void saveFile(std::string);
 
 };
 
