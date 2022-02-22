@@ -17,11 +17,9 @@ void FileManager::writeFile(std::string name, std::string content) {
 }
 void FileManager::create(std::string name){
     std::ofstream file(name, std::ios::out | std::ios::trunc);  //stream declaration and file opening
-    //tmp = "<rect x="x" y="y" width="width" height="height" fill="lime" stroke-width="4" stroke="color" />";
     if(file){
         file << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
-                "<svg width=\"391\" height=\"391\" viewBox=\"-70.5 -70.5 391 391\" xmlns=\"http://www.w3.org/2000/svg\">\n"
-                "</svg>";
+                "<svg width=\"391\" height=\"391\" viewBox=\"-70.5 -70.5 391 391\" xmlns=\"http://www.w3.org/2000/svg\">\n";
         file.close();
     }
     else

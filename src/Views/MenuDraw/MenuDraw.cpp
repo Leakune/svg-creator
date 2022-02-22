@@ -78,7 +78,7 @@ bool MenuDraw::handleSelectionCaseChoiceDraw(int &indexCaseDrawSelected) {
             std::cout << "TODO draw polygon" << std::endl;
             return IS_NOT_QUITING_DRAW;
         case 4:
-            std::cout << "TODO display drawing" << std::endl;
+            displayDrawing();
             return IS_NOT_QUITING_DRAW;
         case 5:
             std::cout << "TODO display menu exit (save or not)" << std::endl;
@@ -92,6 +92,8 @@ void MenuDraw::loadDrawing() {
     #ifdef _WIN32
     ShellExecute(NULL, "open", "..\\Ressources\\Drawings\\test.svg",
                 NULL, NULL, SW_SHOWNORMAL);
+    #elif __linux__
+    system("xdg-open ../Ressources/Drawings/test.svg");
     #else
     system("open ../Ressources/Drawings/test.svg");
     #endif
@@ -99,8 +101,7 @@ void MenuDraw::loadDrawing() {
 }
 
 void MenuDraw::handleDrawRectangle() {
-    std::string x,y,width,height, strokeWidth;
-    std::string color;
+    std::string x, y, width, height, strokeWidth, fill, color;
     std::string content;
 
     std::cout << "Origin X of rectangle" << std::endl;
@@ -113,10 +114,26 @@ void MenuDraw::handleDrawRectangle() {
     std::getline(std::cin, height);
     std::cout << "Width of the strokes" << std::endl;
     std::getline(std::cin, strokeWidth);
+    std::cout << "Fill of rectangle" << std::endl;
+    std::getline(std::cin, fill);
     std::cout << "Color of rectangle" << std::endl;
     std::getline(std::cin, color);
 
-    content = "<rect x=\"" + x + "\" y=\"" + y + "\" width=\"" + width + "\" height=\"" +  height + "\" fill=\"lime\" stroke-width=\"" + strokeWidth + "\" stroke=\"" + color +"\" />";
+    content = "<rect x=\"" + x + "\" y=\"" + y + "\" width=\"" + width + "\" height=\"" +  height + "\" fill=\"" + fill + "\" stroke-width=\"" + strokeWidth + "\" stroke=\"" + color +"\" />\n";
 
     fm.writeFile("temp.svg", content);
+}
+
+void MenuDraw::displayDrawing() {
+    std::string content = "</svg>";
+    fm.writeFile("temp.svg", content);
+
+    #ifdef _WIN32
+        ShellExecute(NULL, "open", "temp.svg",
+                    NULL, NULL, SW_SHOWNORMAL);
+    #elif __linux__
+        system("xdg-open ./temp.svg");
+    #else
+        system("open ./temp.svg");
+    #endif
 }

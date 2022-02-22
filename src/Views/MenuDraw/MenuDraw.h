@@ -21,6 +21,7 @@ class MenuDraw {
         bool handleSelectionCaseChoiceDraw(int&);
         void handleDrawRectangle();
         void loadDrawing();
+        void displayDrawing();
 };
 
 
