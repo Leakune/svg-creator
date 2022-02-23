@@ -20,6 +20,9 @@ class MenuDraw {
         void setSelectionCaseChoiceDraw(int&);
         bool handleSelectionCaseChoiceDraw(int&);
         void handleDrawRectangle();
+        void handleDrawPolyline();
+        void handleDrawLine();
+        void handleDrawCircle();
         void loadDrawing();
         void displayDrawing();
 };
