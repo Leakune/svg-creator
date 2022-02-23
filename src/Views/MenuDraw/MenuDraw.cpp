@@ -120,3 +120,79 @@ void MenuDraw::handleDrawRectangle() {
 
     fm.writeFile("temp.svg", content);
 }
+
+void MenuDraw::handleDrawCircle() {
+    std::string cx,cy,r;
+    std::string fill;
+    std::string content;
+
+    std::cout << "Origin X of circle" << std::endl;
+    std::getline(std::cin, cx);
+    std::cout << "Origin Y of circle" << std::endl;
+    std::getline(std::cin, cy);
+    std::cout << "Rayon of circle" << std::endl;
+    std::getline(std::cin, r);
+    std::cout << "Color of circle" << std::endl;
+    std::getline(std::cin, fill);
+
+
+    content = "<circle cx=\"" + cx + "\" cy=\"" + cy + "\" r=\"" + r + "\" fill=\"" +  fill + "\"/>";
+
+    fm.writeFile("temp.svg", content);
+}
+
+void MenuDraw::handleDrawPolyline() {
+    std::string x,y,stroke,strokeWidth, fill = "none";
+    std::string content ;
+    int number, max = 10, i;
+
+    content = "<polyline points=\""
+
+    std::cout << "Combien de points voulez vous faire (max 10)" << std::endl;
+    std::getline(std::cin, number);
+
+
+    if (number > max){
+        number = max;
+    }
+    for (i = 0; i < number ; i++){
+        std::cout << "X of point" << std::endl;
+        std::getline(std::cin, x);
+        std::cout << "Y of point" << std::endl;
+        std::getline(std::cin, y);
+        content +=  x + "," + y;
+    }
+
+    std::cout << "Sroke of polyline" << std::endl;
+    std::getline(std::cin, stroke);
+    std::cout << "Stroke-width of polyline" << std::endl;
+    std::getline(std::cin, strokeWidth);
+
+
+    content += "\" stroke= \"" + stroke + "\" stroke-width=\"" +  strokeWidth + "\" fill\"" +fill+"\" />";
+
+    fm.writeFile("temp.svg", content);
+}
+
+void MenuDraw::handleDrawLine() {
+    std::string x1,y1,x2,y2,stroke, strokeWidth;
+    std::string content;
+
+    std::cout << "X1 of line" << std::endl;
+    std::getline(std::cin, x1);
+    std::cout << "Y1 of line" << std::endl;
+    std::getline(std::cin, y1);
+    std::cout << "X2 of line" << std::endl;
+    std::getline(std::cin, x2);
+    std::cout << "Y2 of line" << std::endl;
+    std::getline(std::cin, y2);
+
+    std::cout << "Stroke of line" << std::endl;
+    std::getline(std::cin, stroke);
+    std::cout << "Stroke-width of line" << std::endl;
+    std::getline(std::cin, strokeWidth);
+
+    content = "<line x1=\"" + x1 + "\" y1=\"" + y1 + "x2=\"" + x2 + "\" y2=\"" + y2 + "\" stroke=\"" + stroke + "\" stroke-width=\"" +  strokeWidth + "\" />";
+
+    fm.writeFile("temp.svg", content);
+}
