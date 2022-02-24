@@ -16,6 +16,7 @@ class FileManager {
         void create(std::string);
         void loadFile(std::string);
         void saveFile(std::string);
+        void removeEndTagSvg(std::string);
 
 };
 

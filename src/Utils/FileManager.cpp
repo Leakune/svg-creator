@@ -5,7 +5,9 @@
 #include "FileManager.h"
 #include <string>
 #include <iostream>
-#include <fstream>
+#include <thread>
+#include <chrono>
+using namespace std::chrono_literals;
 
 FileManager::FileManager(){}
 
@@ -31,4 +33,27 @@ void FileManager::loadFile(std::string name){
 }
 void FileManager::saveFile(std::string name){
 
+}
+
+void FileManager::removeEndTagSvg(std::string fileName) {
+    int size, sizeWithoutEndSvg;
+    std::string endTagSvgString = "</svg>";
+    char* buffer;
+
+    std::ifstream file(fileName, std::ios::in|std::ios::ate);
+    size = file.tellg();
+    sizeWithoutEndSvg = size - endTagSvgString.length();
+
+    buffer = new char [sizeWithoutEndSvg];
+    file.seekg(0, std::ios::beg);
+    file.read(buffer, sizeWithoutEndSvg);
+    file.close();
+
+    std::this_thread::sleep_for(250ms); //wait file to finish read content before writing
+
+    std::ofstream newFile(fileName,std::ios::trunc);
+    newFile.write(buffer, sizeWithoutEndSvg);
+    newFile.close();
+
+    delete[] buffer;
 }

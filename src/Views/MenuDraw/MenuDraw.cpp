@@ -98,6 +98,21 @@ void MenuDraw::loadDrawing() {
 
 }
 
+void MenuDraw::displayDrawing() {
+    std::string content = "</svg>";
+    fm.writeFile("temp.svg", content);
+
+#ifdef _WIN32
+    ShellExecute(NULL, "open", "temp.svg",
+                    NULL, NULL, SW_SHOWNORMAL);
+#elif __linux__
+    system("xdg-open ./temp.svg");
+#else
+    system("open ./temp.svg");
+#endif
+    fm.removeEndTagSvg("temp.svg");
+}
+
 void MenuDraw::handleDrawRectangle() {
     std::string x, y, width, height, strokeWidth, fill, color;
     std::string content;
@@ -120,20 +135,6 @@ void MenuDraw::handleDrawRectangle() {
     content = "<rect x=\"" + x + "\" y=\"" + y + "\" width=\"" + width + "\" height=\"" +  height + "\" fill=\"" + fill + "\" stroke-width=\"" + strokeWidth + "\" stroke=\"" + color +"\" />\n";
 
     fm.writeFile("temp.svg", content);
-}
-
-void MenuDraw::displayDrawing() {
-    std::string content = "</svg>";
-    fm.writeFile("temp.svg", content);
-
-    #ifdef _WIN32
-        ShellExecute(NULL, "open", "temp.svg",
-                    NULL, NULL, SW_SHOWNORMAL);
-    #elif __linux__
-        system("xdg-open ./temp.svg");
-    #else
-        system("open ./temp.svg");
-    #endif
 }
 
 void MenuDraw::handleDrawPolyline() {
