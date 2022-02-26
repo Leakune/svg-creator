@@ -18,7 +18,8 @@ MenuDraw::MenuDraw(): menuDrawExit(MenuDrawExit()), fm(FileManager()) {
     casesMapDraw[2] = "Draw a segment";
     casesMapDraw[3] = "Draw a polygon";
     casesMapDraw[4] = "Display drawing";
-    casesMapDraw[5] = "Exit";
+    casesMapDraw[5] = "Remove last element";
+    casesMapDraw[6] = "Exit";
 }
 
 void MenuDraw::launch() {
@@ -79,6 +80,9 @@ bool MenuDraw::handleSelectionCaseChoiceDraw(int &indexCaseDrawSelected) {
             displayDrawing();
             return IS_NOT_QUITING_DRAW;
         case 5:
+            fm.removeLastElement("temp.svg");
+            return IS_NOT_QUITING_DRAW;
+        case 6:
             menuDrawExit.launch();
             return IS_QUITING_DRAW;
         default:

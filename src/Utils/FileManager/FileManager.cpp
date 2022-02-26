@@ -9,6 +9,9 @@
 #include <chrono>
 using namespace std::chrono_literals;
 
+const char* HEADER_SVG = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
+                               "<svg width=\"1000\" height=\"1000\" viewBox=\"-70.5 -70.5 1000 1000\" xmlns=\"http://www.w3.org/2000/svg\">\n";
+
 FileManager::FileManager(){}
 
 void FileManager::writeFile(std::string name, std::string content) {
@@ -33,8 +36,7 @@ void FileManager::writeFileWithBuffer(std::string fileName, int size, char* buff
 void FileManager::createFileWithSvgHeader(std::string name){
     std::ofstream file(name, std::ios::out | std::ios::trunc);  //stream declaration and file opening
     if(file){
-        file << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
-                "<svg width=\"1000\" height=\"1000\" viewBox=\"-70.5 -70.5 1000 1000\" xmlns=\"http://www.w3.org/2000/svg\">\n";
+        file << HEADER_SVG;
         file.close();
     }
     else std::cerr << "Error opening the file" << std::endl;
@@ -94,6 +96,36 @@ void FileManager::removeEndTagSvg(std::string fileName) {
     std::this_thread::sleep_for(250ms); //wait file to finish read content before writing
 
     writeFileWithBuffer(fileName, sizeWithoutEndSvg, buffer);
+
+    delete[] buffer;
+}
+
+void FileManager::removeLastElement(char * fileName) {
+        char* buffer;
+        int size = getSizeContentFile(fileName);
+        char const * fileNameTmp = "tmp.svg";
+        std::string line;
+        buffer = new char [size];
+        copyContentFileToBuffer(fileName, size, buffer);
+
+        //check if there is no lines drawings
+        if(memcmp(buffer,HEADER_SVG, size) == 0){
+            std::cout << "Error: no element to remove found" << std::endl;
+            delete[] buffer;
+            return;
+        }
+
+        std::ifstream input(fileName);
+        std::ofstream output(fileNameTmp);
+
+        if(input && output){
+            std::getline(input, line);
+            for (std::string tmp; std::getline(input, tmp); line.swap(tmp)) {
+                output << line << '\n';
+            }
+            std::rename(fileNameTmp, fileName);
+        }
+        else std::cerr << "Error opening the files" << std::endl;
 
     delete[] buffer;
 }

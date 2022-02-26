@@ -18,6 +18,7 @@ class FileManager {
         void loadFile(std::string);
         void saveFile(std::string, std::string);
         void removeEndTagSvg(std::string);
+        void removeLastElement(char *);
         int getSizeContentFile(std::string);
         void copyContentFileToBuffer(std::string, int, char*);
 };
