@@ -10,7 +10,7 @@
 const bool IS_NOT_QUITING_DRAW = false;
 const bool IS_QUITING_DRAW = true;
 
-MenuDrawExit::MenuDrawExit(): fm(FileManager()), menuDrawExitSave(MenuDrawExitSave()) {
+MenuDrawExit::MenuDrawExit(): menuDrawExitSave(MenuDrawExitSave()) {
     casesMapDrawExit[0] = "Yes";
     casesMapDrawExit[1] = "No";
 }
