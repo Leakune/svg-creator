@@ -47,10 +47,12 @@ void Menu::setSelectionCaseChoice(int& indexCaseSelected){
         indexCaseSelected = std::stoi(getLine);
         if(!(0 <= indexCaseSelected && indexCaseSelected < casesMap.size())){
             std::cout << "selection is not included in cases choice" << std::endl;
+            displayCasesChoices();
             setSelectionCaseChoice(indexCaseSelected);
         }
     } catch(std::invalid_argument e){
         std::cout << "selection should be integer" << std::endl;
+        displayCasesChoices();
         setSelectionCaseChoice(indexCaseSelected);
     }
 }
