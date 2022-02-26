@@ -34,7 +34,7 @@ void FileManager::createFileWithSvgHeader(std::string name){
     std::ofstream file(name, std::ios::out | std::ios::trunc);  //stream declaration and file opening
     if(file){
         file << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
-                "<svg width=\"1000\" height=\"1000\" viewBox=\"-70.5 -70.5 391 391\" xmlns=\"http://www.w3.org/2000/svg\">\n";
+                "<svg width=\"1000\" height=\"1000\" viewBox=\"-70.5 -70.5 1000 1000\" xmlns=\"http://www.w3.org/2000/svg\">\n";
         file.close();
     }
     else std::cerr << "Error opening the file" << std::endl;
