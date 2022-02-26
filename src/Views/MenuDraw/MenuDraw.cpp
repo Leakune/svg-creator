@@ -158,9 +158,9 @@ void MenuDraw::handleDrawPolyline() {
         handleDrawPolyline();
         return;
     }
-    std::cout << "number " << number << std::endl;
     content = "<polyline points=\"";
     for (i = 0; i < number ; i++){
+        std::cout << "Point " << i+1 << std::endl;
         std::cout << "X of point" << std::endl;
         std::getline(std::cin, x);
         std::cout << "Y of point" << std::endl;
