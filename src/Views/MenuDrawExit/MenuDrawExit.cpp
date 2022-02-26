@@ -10,7 +10,7 @@
 const bool IS_NOT_QUITING_DRAW = false;
 const bool IS_QUITING_DRAW = true;
 
-MenuDrawExit::MenuDrawExit(): fm(FileManager()) {
+MenuDrawExit::MenuDrawExit(): fm(FileManager()), menuDrawExitSave(MenuDrawExitSave()) {
     casesMapDrawExit[0] = "Yes";
     casesMapDrawExit[1] = "No";
 }
@@ -55,11 +55,15 @@ void MenuDrawExit::setSaveOption(std::string &saveOption) {
 }
 
 void MenuDrawExit::handleSaveOption(std::string &saveOption) {
+    //save case
     if(saveOption == Utils::convertStringToLowerCase(casesMapDrawExit[0])){
-        //TODO save
         std::cout << "save selected" << std::endl;
+        menuDrawExitSave.launch();
         return;
-    }else if(saveOption == Utils::convertStringToLowerCase(casesMapDrawExit[1])){
+    }
+
+    //leave without save case
+    else if(saveOption == Utils::convertStringToLowerCase(casesMapDrawExit[1])){
         std::cout << "exit without save selected" << std::endl;
     }else{
         return;

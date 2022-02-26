@@ -8,9 +8,11 @@
 #include <string>
 #include <map>
 #include "../../Utils/FileManager/FileManager.h"
+#include "../MenuDrawExitSave/MenuDrawExitSave.h"
 
 class MenuDrawExit {
     FileManager fm;
+    MenuDrawExitSave menuDrawExitSave;
     std::map<int, std::string> casesMapDrawExit;
 
     public:
