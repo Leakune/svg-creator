@@ -12,7 +12,7 @@
 const bool IS_NOT_QUITING_DRAW = false;
 const bool IS_QUITING_DRAW = true;
 
-MenuDraw::MenuDraw(): fm(FileManager()) {
+MenuDraw::MenuDraw(): menuDrawExit(MenuDrawExit()), fm(FileManager()) {
     casesMapDraw[0] = "Draw a rectangle";
     casesMapDraw[1] = "Draw a circle";
     casesMapDraw[2] = "Draw a segment";
@@ -79,7 +79,7 @@ bool MenuDraw::handleSelectionCaseChoiceDraw(int &indexCaseDrawSelected) {
             displayDrawing();
             return IS_NOT_QUITING_DRAW;
         case 5:
-            std::cout << "TODO display menu exit (save or not)" << std::endl;
+            menuDrawExit.launch();
             return IS_QUITING_DRAW;
         default:
             return IS_NOT_QUITING_DRAW;

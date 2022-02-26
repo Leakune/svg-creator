@@ -7,10 +7,12 @@
 
 #include <string>
 #include <map>
-#include "../../Utils/FileManager.h"
+#include "../../Utils/FileManager/FileManager.h"
+#include "../MenuDrawExit/MenuDrawExit.h"
 
 class MenuDraw {
     FileManager fm;
+    MenuDrawExit menuDrawExit;
     std::map<int, std::string> casesMapDraw;
     public:
         MenuDraw();
