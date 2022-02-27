@@ -3,7 +3,7 @@
 //
 
 #include "MenuDrawExit.h"
-#include "../../Utils/Utils/Utils.h"
+#include "../../Common/Utils/Utils.h"
 #include <iostream>
 #include <algorithm>
 
@@ -31,7 +31,10 @@ void MenuDrawExit::displaySaveMessage() {
 void MenuDrawExit::displayCasesChoicesDrawExit() {
     std::cout << "(";
     for (const auto& [key, value] : casesMapDrawExit) {
-        std::cout << value <<"/";
+        std::cout << value;
+        if(key != casesMapDrawExit.size() - 1){
+            std::cout <<"/";
+        }
     }
     std::cout << ")" << std::endl;
 }

@@ -6,7 +6,7 @@
 #include <string>
 
 const int MIN_FILE_NAME_LENGTH = 1;
-const int MAX_FILE_NAME_LENGTH = 10;
+const int MAX_FILE_NAME_LENGTH = 14;
 
 MenuDrawExitSave::MenuDrawExitSave(): fm(FileManager()) {
 

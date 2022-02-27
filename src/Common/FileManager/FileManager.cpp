@@ -105,14 +105,14 @@ void FileManager::removeLastElement(char * fileName) {
         int size = getSizeContentFile(fileName);
         char const * fileNameTmp = "tmp.svg";
         std::string line;
-        const char *headerSVGchar = HEADER_SVG.c_str(); // convert std::string to char*
+        const char * headerSVGchar = HEADER_SVG.c_str(); // convert std::string to char*
         buffer = new char [size];
-        
+
         copyContentFileToBuffer(fileName, size, buffer);
 
         //check if there is no lines drawings
         if(memcmp(buffer,headerSVGchar, size) == 0){
-            std::cout << "Error: no element to remove found" << std::endl;
+            std::cerr << "Error: no element to remove found" << std::endl;
             delete[] buffer;
             return;
         }

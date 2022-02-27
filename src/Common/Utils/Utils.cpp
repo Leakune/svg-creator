@@ -13,9 +13,9 @@ bool Utils::stringsAreEqualsCaseInsensitive(std::string &string1, std::string &s
                       });
 }
 
-std::string Utils::convertStringToLowerCase(std::string &string) {
+std::string Utils::convertStringToLowerCase(std::string &stringToConvert) {
     std::string res;
-    std::transform(string.begin(), string.end(), std::inserter(res, std::end(res)),
+    std::transform(stringToConvert.begin(), stringToConvert.end(), std::inserter(res, std::end(res)),
                    [](unsigned char c) -> unsigned char { return std::tolower(c); });
     return res;
 }
