@@ -9,7 +9,7 @@
 #include <chrono>
 using namespace std::chrono_literals;
 
-const char* HEADER_SVG = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
+std::string HEADER_SVG = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
                                "<svg width=\"1000\" height=\"1000\" viewBox=\"-70.5 -70.5 1000 1000\" xmlns=\"http://www.w3.org/2000/svg\">\n";
 
 FileManager::FileManager(){}
@@ -105,11 +105,13 @@ void FileManager::removeLastElement(char * fileName) {
         int size = getSizeContentFile(fileName);
         char const * fileNameTmp = "tmp.svg";
         std::string line;
+        const char *headerSVGchar = HEADER_SVG.c_str(); // convert std::string to char*
         buffer = new char [size];
+        
         copyContentFileToBuffer(fileName, size, buffer);
 
         //check if there is no lines drawings
-        if(memcmp(buffer,HEADER_SVG, size) == 0){
+        if(memcmp(buffer,headerSVGchar, size) == 0){
             std::cout << "Error: no element to remove found" << std::endl;
             delete[] buffer;
             return;
