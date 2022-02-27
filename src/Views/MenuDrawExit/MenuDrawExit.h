@@ -8,7 +8,6 @@
 #include <string>
 #include <map>
 #include "../../Common/FileManager/FileManager.h"
-#include "../MenuDrawExitSave/MenuDrawExitSave.h"
 #include "../MenuNameFile/MenuNameFile.h"
 
 class MenuDrawExit {
