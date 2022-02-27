@@ -9,9 +9,10 @@
 #include <map>
 #include "../../Common/FileManager/FileManager.h"
 #include "../MenuDrawExitSave/MenuDrawExitSave.h"
+#include "../MenuNameFile/MenuNameFile.h"
 
 class MenuDrawExit {
-    MenuDrawExitSave menuDrawExitSave;
+    MenuNameFile menuNameFile;
     std::map<int, std::string> casesMapDrawExit;
 
     public:

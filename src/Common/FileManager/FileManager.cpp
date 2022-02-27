@@ -42,9 +42,31 @@ void FileManager::createFileWithSvgHeader(std::string name){
     else std::cerr << "Error opening the file" << std::endl;
 }
 
-void FileManager::loadFile(std::string name){
+int FileManager::loadFile(std::string fileName){
+    std::string tempFile = "temp.svg";
+    int size;
+    char* buffer;
+    size = getSizeContentFile(fileName);
 
+    if(size == -1){
+        std::cerr << "File not found" << std::endl;
+        return -1;
+    }
+
+    buffer = new char [size];
+
+    //get content of loading file
+    copyContentFileToBuffer(fileName, size, buffer);
+
+    //write content of loading file into temp file
+    writeFileWithBuffer(tempFile, size, buffer);
+
+    removeEndTagSvg(tempFile);
+    delete[] buffer;
+
+    return 0;
 }
+
 void FileManager::saveFile(std::string fileNameTemp, std::string fileNameToBeSaved){
     int size;
     char* buffer;
@@ -79,7 +101,7 @@ int FileManager::getSizeContentFile(std::string fileName) {
     }
     else std::cerr << "Error opening the file" << std::endl;
 
-    return 0;
+    return -1;
 }
 
 void FileManager::removeEndTagSvg(std::string fileName) {
@@ -89,6 +111,12 @@ void FileManager::removeEndTagSvg(std::string fileName) {
 
     size = getSizeContentFile(fileName);
     sizeWithoutEndSvg = size - endTagSvgString.length();
+
+    if(sizeWithoutEndSvg < 0){
+        std::cerr << "Error: file empty" << std::endl;
+        delete[] buffer;
+        return;
+    }
     buffer = new char [sizeWithoutEndSvg];
 
     copyContentFileToBuffer(fileName, sizeWithoutEndSvg, buffer);

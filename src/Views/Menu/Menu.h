@@ -13,7 +13,7 @@
 
 class Menu {
     MenuDraw drawview;
-    MenuNameFile namefile;
+    MenuNameFile menuNameFile;
     FileManager fm;
     std::map<int, std::string> casesMap;
     public:
