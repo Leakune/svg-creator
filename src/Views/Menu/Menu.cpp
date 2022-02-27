@@ -65,7 +65,7 @@ bool Menu::handleSelectionCaseChoice(int& indexCaseSelected) {
             return IS_NOT_QUITING_MENU;
         case 1:
             std::cout << "Load shapes selected" << std::endl;
-            // TODO drawview.loadDrawing();
+            drawview.loadDrawing();
             // TODO fm.loadFile();
             return IS_NOT_QUITING_MENU;
         case 2:
