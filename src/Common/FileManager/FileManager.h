@@ -15,7 +15,7 @@ class FileManager {
         void writeFile(std::string, std::string);
         void writeFileWithBuffer(std::string, int, char*);
         void createFileWithSvgHeader(std::string);
-        void loadFile(std::string);
+        int loadFile(std::string);
         void saveFile(std::string, std::string);
         void removeEndTagSvg(std::string);
         void removeLastElement(char *);

@@ -143,8 +143,6 @@ void MenuDraw::handleDrawRectangle() {
 
 void MenuDraw::handleDrawPolyline() {
     std::string x,y,stroke,strokeWidth, content, choiceNumber;
-//    std::string content;
-
     int number, max = 10, min = 2, i;
 
     std::cout << "How many points do you want (max 10)" << std::endl;

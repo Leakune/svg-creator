@@ -3,14 +3,14 @@
 //
 
 #include "MenuDrawExit.h"
-#include "../../Utils/Utils/Utils.h"
+#include "../../Common/Utils/Utils.h"
 #include <iostream>
 #include <algorithm>
 
 const bool IS_NOT_QUITING_DRAW = false;
 const bool IS_QUITING_DRAW = true;
 
-MenuDrawExit::MenuDrawExit(): menuDrawExitSave(MenuDrawExitSave()) {
+MenuDrawExit::MenuDrawExit(): menuNameFile(MenuNameFile()) {
     casesMapDrawExit[0] = "Yes";
     casesMapDrawExit[1] = "No";
 }
@@ -31,7 +31,10 @@ void MenuDrawExit::displaySaveMessage() {
 void MenuDrawExit::displayCasesChoicesDrawExit() {
     std::cout << "(";
     for (const auto& [key, value] : casesMapDrawExit) {
-        std::cout << value <<"/";
+        std::cout << value;
+        if(key != casesMapDrawExit.size() - 1){
+            std::cout <<"/";
+        }
     }
     std::cout << ")" << std::endl;
 }
@@ -58,7 +61,7 @@ void MenuDrawExit::handleSaveOption(std::string &saveOption) {
     //save case
     if(saveOption == Utils::convertStringToLowerCase(casesMapDrawExit[0])){
         std::cout << "save selected" << std::endl;
-        menuDrawExitSave.launch();
+        menuNameFile.nameFileToSave();
         return;
     }
 
